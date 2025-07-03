@@ -46,7 +46,7 @@ export function OurStory() {
           <div className="space-y-12 md:space-y-0">
             {timelineEvents.map((event, index) => (
               <div key={index} className="relative flex items-center md:justify-center">
-                <div className="md:w-1/2 flex md:justify-end md:pr-12 md:text-right data-[side=right]:md:pl-12 data-[side=right]:md:text-left data-[side=right]:md:justify-start" data-side={index % 2 === 0 ? 'left' : 'right'}>
+                <div className="md:w-1/2 flex md:justify-end md:pr-12 md:text-right data-[side=right]:order-last data-[side=right]:md:justify-start data-[side=right]:md:pl-12 data-[side=right]:md:pr-0 data-[side=right]:md:text-left" data-side={index % 2 === 0 ? 'left' : 'right'}>
                    <Card className="w-full md:max-w-md shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <CardHeader>
                       <CardTitle className="text-2xl text-primary">{event.title}</CardTitle>
