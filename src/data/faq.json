@@ -1,0 +1,14 @@
+[
+  {
+    "question": "¿Cómo puedo ordenar comida?",
+    "answer": "Usa nuestra app asociada: OrderEat. También puedes pedir directo en cafetería."
+  },
+  {
+    "question": "¿Qué pasa si falla mi método de pago?",
+    "answer": "La aplicación puede tardar al procesar tarjetas. Te recomendamos tener una segunda opción de pago disponible."
+  },
+  {
+    "question": "¿Puedo hacer cambios de último minuto?",
+    "answer": "OrderEat no permite modificaciones justo antes del cierre. Te recomendamos planear tus pedidos con tiempo."
+  }
+]

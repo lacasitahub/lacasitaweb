@@ -1,0 +1,18 @@
+[
+  {
+    "category": "Desayunos",
+    "items": ["Waffles integrales", "Huevitos al gusto", "Tacos de guisos", "Chilaquiles hogareños"]
+  },
+  {
+    "category": "Platos fuertes",
+    "items": ["Pescado empapelado con arroz y verduras", "Milanesa rellena con sopa de lentejas", "Pasta Alfredo con pollo"]
+  },
+  {
+    "category": "Snacks",
+    "items": ["Sándwiches frescos", "Ensaladas variadas", "Fruta picada"]
+  },
+  {
+    "category": "Bebidas",
+    "items": ["Agua natural", "Limonadas", "Jugos naturales"]
+  }
+]
