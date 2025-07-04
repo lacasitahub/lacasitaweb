@@ -2,31 +2,68 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import ScrambledText from './ScrambledText';
-import './ScrambledText.css';
 import { ArrowRight } from 'lucide-react';
+import RotatingText from './RotatingText';
+import { motion } from 'framer-motion';
 
 export function Hero() {
+  const rotatingTexts = ['Corazón', 'Estudiante', 'Maestro', 'Futuro'];
+
   return (
-    <section id="inicio" className="relative w-full py-24 md:py-32 bg-secondary/30 overflow-hidden">
-        <div className="absolute top-[-10rem] right-[-10rem] w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-50"></div>
-        <div className="absolute bottom-[-5rem] left-[-5rem] w-80 h-80 bg-accent/10 rounded-full filter blur-3xl opacity-40"></div>
+    <section id="inicio" className="relative w-full py-24 md:py-32 bg-background overflow-hidden">
+      <div className="absolute top-[-10rem] right-[-10rem] w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-50"></div>
+      <div className="absolute bottom-[-5rem] left-[-5rem] w-80 h-80 bg-accent/10 rounded-full filter blur-3xl opacity-40"></div>
         
-      <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-12 items-center z-10 relative">
-        <div className="flex flex-col gap-6 text-center md:text-left">
-          <h1 className="text-5xl md:text-7xl font-bold text-primary font-headline tracking-tight leading-tight">
-            <ScrambledText
-                scrambleChars="."
-                speed={0.3}
-                duration={1}
+      <div className="container mx-auto px-4 md:px-6 z-10 relative">
+        <div className="flex flex-col items-center text-center gap-8">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
             >
-              Comida casera, corazón contento
-            </ScrambledText>
-          </h1>
-          <p className="text-lg md:text-xl text-foreground/80">
+                <Image
+                    src="/logo.png"
+                    alt="La Casita Logo"
+                    width={150}
+                    height={150}
+                    className="shadow-2xl"
+                    priority
+                />
+            </motion.div>
+
+          <motion.h1 
+            className="text-4xl md:text-6xl font-bold text-primary tracking-tight leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Comida casera para un
+            <br/>
+            <RotatingText
+                texts={rotatingTexts}
+                mainClassName="text-5xl md:text-7xl text-accent inline-block mx-2 font-bold"
+                staggerDuration={0.02}
+                splitLevelClassName="overflow-hidden pb-1"
+                staggerFrom="center"
+            />
+            contento
+          </motion.h1>
+
+          <motion.p 
+            className="text-lg md:text-xl text-foreground/80 max-w-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             Nutrimos el futuro de México con platillos deliciosos, balanceados y preparados con el amor de mamá. ¡Directo a la escuela!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-4">
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
             <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow">
               Ver Menú
               <ArrowRight className="ml-2"/>
@@ -34,18 +71,7 @@ export function Hero() {
             <Button size="lg" variant="outline" className="text-lg px-8 py-6">
               Contáctanos
             </Button>
-          </div>
-        </div>
-        <div className="relative h-80 md:h-[28rem] w-full group">
-            <div className="absolute -inset-2 bg-gradient-to-br from-accent/50 to-primary/50 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-            <Image
-                src="https://placehold.co/600x450.png"
-                alt="Niños felices comiendo en la escuela"
-                layout="fill"
-                objectFit="cover"
-                className="relative rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                data-ai-hint="happy children school lunch"
-            />
+          </motion.div>
         </div>
       </div>
     </section>
