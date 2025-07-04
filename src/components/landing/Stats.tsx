@@ -34,7 +34,7 @@ export function Stats() {
               className="flex items-center justify-center"
             >
               <div className="p-8 text-center">
-                <div className="text-6xl md:text-7xl font-black text-primary tracking-tighter">
+                <div className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline">
                   {stat.value}
                 </div>
                 <div className="text-lg md:text-xl font-bold text-foreground/90 mt-2 capitalize">

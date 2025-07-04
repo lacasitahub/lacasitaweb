@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bean, Building, Handshake, School, ShieldCheck } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const timelineEvents = [
   {
@@ -35,40 +36,46 @@ export function OurStory() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold font-headline text-primary">Nuestra Historia</h2>
           <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto">
-            Un viaje de sabor y cuidado que empezó en la cocina de una madre mexicana y hoy alimenta el futuro de México.
+            Un viaje de sabor y cuidado que empezó en una cocina casera y hoy alimenta el futuro de México.
           </p>
         </div>
 
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-1/2 top-0 h-full w-0.5 bg-primary/20 hidden md:block"></div>
-          
+        <div className="relative max-w-4xl mx-auto">
+          <div className="absolute top-4 bottom-4 w-0.5 bg-primary/20 left-1/2 -translate-x-1/2 hidden md:block" aria-hidden="true" />
+
           <div className="space-y-12 md:space-y-0">
             {timelineEvents.map((event, index) => (
-              <div key={index} className="relative flex items-center md:justify-center">
-                <div className="md:w-1/2 flex md:justify-end md:pr-12 md:text-right data-[side=right]:order-last data-[side=right]:md:justify-start data-[side=right]:md:pl-12 data-[side=right]:md:pr-0 data-[side=right]:md:text-left" data-side={index % 2 === 0 ? 'left' : 'right'}>
-                   <Card className="w-full md:max-w-md shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <CardHeader>
-                      <CardTitle className="text-2xl text-primary">{event.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-lg font-bold mb-2">{event.year}</p>
-                      <p className="text-foreground/80">{event.description}</p>
-                    </CardContent>
-                  </Card>
+              <div key={index} className="relative">
+                <div className={cn("md:flex items-center", index % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row")}>
+                  
+                  <div className="md:w-1/2">
+                    <div className={cn("p-1 md:p-4", index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left")}>
+                      <Card className="w-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <CardHeader>
+                          <CardTitle className="text-2xl text-primary font-headline">{event.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-lg font-bold mb-2">{event.year}</p>
+                          <p className="text-foreground/80">{event.description}</p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+
+                  <div className="md:w-1/2" />
                 </div>
-                <div className="absolute left-1/2 -translate-x-1/2 bg-background p-3 rounded-full border-4 border-primary/20 hidden md:flex">
+
+                <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-background p-3 rounded-full border-4 border-primary/20 hidden md:flex">
                   <event.icon className="w-8 h-8 text-primary" />
                 </div>
-                 <div className="w-1/2 hidden md:block"></div>
               </div>
             ))}
           </div>
         </div>
 
         <div className="mt-20 text-center max-w-4xl mx-auto">
-            <ShieldCheck className="w-16 h-16 text-accent mx-auto mb-4"/>
-            <h3 className="text-2xl font-bold text-primary">Calidad y Confianza</h3>
+            <ShieldCheck className="w-16 h-16 text-primary mx-auto mb-4"/>
+            <h3 className="text-2xl font-bold text-primary font-headline">Calidad y Confianza</h3>
             <p className="mt-2 text-md text-foreground/80">
                 Nuestro personal cuenta con entrenamiento bajo el <span className="font-bold">Certificado H</span>, el máximo estándar de higiene y manejo de alimentos, garantizando la seguridad y bienestar de tus hijos.
             </p>
