@@ -22,12 +22,13 @@ export function Hero() {
                 transition={{ duration: 0.5 }}
             >
                 <Image
-                    src="/logo.png"
+                    src="https://placehold.co/150x150.png"
                     alt="La Casita Logo"
                     width={150}
                     height={150}
-                    className="shadow-2xl"
+                    className="shadow-2xl rounded-full"
                     priority
+                    data-ai-hint="logo"
                 />
             </motion.div>
 
