@@ -48,7 +48,7 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <Button className="hidden md:flex" variant="outline">
+        <Button className="hidden md:flex shadow-lg">
           Ordena en OrderEat
         </Button>
         <div className="md:hidden">

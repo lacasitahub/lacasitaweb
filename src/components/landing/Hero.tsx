@@ -1,5 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import ScrambledText from './ScrambledText';
+import './ScrambledText.css';
 
 export function Hero() {
   return (
@@ -7,7 +11,13 @@ export function Hero() {
       <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col gap-6 text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-extrabold text-primary font-headline tracking-tight">
-            Comida con amor, sabor casero y nutrición real
+            <ScrambledText
+                scrambleChars="."
+                speed={0.3}
+                duration={1}
+            >
+              Comida con amor, sabor casero y nutrición real
+            </ScrambledText>
           </h1>
           <p className="text-lg md:text-xl text-foreground/80">
             Más de 20,000 comidas servidas anualmente para cuidar la alimentación de estudiantes y maestros.

@@ -1,0 +1,13 @@
+.text-block {
+  /* Styles removed to allow inheritance */
+}
+
+/* This allows the component to be used inside other text-flow elements like h1 without breaking layout */
+.text-block p {
+  display: inline;
+}
+
+.char {
+  will-change: transform;
+  display: inline-block;
+}
