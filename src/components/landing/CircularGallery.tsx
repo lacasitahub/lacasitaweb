@@ -340,7 +340,7 @@ class App {
       { image: '/food/sopa_de_lentejas.jpg', text: 'Sopa de Lentejas' },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
-    this.mediasImages = galleryItems.concat(galleryItems);
+    this.mediasImages = galleryItems;
     this.medias = this.mediasImages.map((data, index) => {
       return new Media({
         geometry: this.planeGeometry,
@@ -439,7 +439,7 @@ class App {
 
 export default function CircularGallery({
   items,
-  bend = 2,
+  bend = 3,
   textColor = "#ffffff",
   borderRadius = 0.05,
   font = "bold 30px 'PT Sans'",
