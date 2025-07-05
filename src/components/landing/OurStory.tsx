@@ -39,13 +39,16 @@ const timelineEvents = [
 ];
 
 const galleryItems = [
-    { image: '/chilaquiles.jpg', text: 'Chilaquiles' },
+    { image: '/pez.jpg', text: 'Pescado' },
     { image: '/pasta_alfredo.jpg', text: 'Pasta Alfredo' },
-    { image: '/sopa_de_lentejas.jpg', text: 'Sopa de Lentejas' },
+    { image: '/cesar.jpg', text: 'Ensalada César' },
+    { image: '/sandwich.jpg', text: 'Sándwich' },
+    { image: '/albondigas.jpg', text: 'Albóndigas' },
     { image: '/limon.jpg', text: 'Agua de Limón' },
     { image: '/jamaica.jpg', text: 'Agua de Jamaica' },
+    { image: '/chilaquiles.jpg', text: 'Chilaquiles' },
     { image: '/ensalada.jpg', text: 'Ensalada Fresca' },
-    { image: '/albondigas.jpg', text: 'Albóndigas' },
+    { image: '/sopa_de_lentejas.jpg', text: 'Sopa de Lentejas' },
 ];
 
 export function OurStory() {
