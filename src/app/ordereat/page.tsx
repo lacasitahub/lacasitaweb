@@ -21,41 +21,52 @@ export default function OrderEatPage() {
           </div>
 
           <div className="bg-card p-8 md:p-12 rounded-2xl shadow-xl flex flex-col items-center">
+            <Image
+              src="/ordereat_.png"
+              alt="OrderEat Logo"
+              width={200}
+              height={100}
+              className="object-contain mb-8"
+              data-ai-hint="logo"
+            />
+            <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              ¡Pide fácil y rápido con OrderEat!
+            </h1>
+            <p className="text-lg text-foreground/80 mb-6 max-w-2xl">
+              Descarga la app y sigue los pasos para recibir la comida de tus peques directo en la escuela.
+            </p>
+
             <div className="flex items-center justify-center gap-4 mb-8">
-              <Image
-                src="/ordereat_logo.jpg"
-                alt="OrderEat Logo"
-                width={200}
-                height={100}
-                className="object-contain"
-                data-ai-hint="logo"
-              />
-              <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">
+              <a href="https://apps.apple.com/us/app/ordereat/id1535116333" target="_blank" rel="noopener noreferrer">
                 <Image
-                  src="https://placehold.co/120x40.png"
+                  src="/appstore_.png"
                   alt="Download on the App Store"
-                  width={120}
-                  height={40}
+                  width={150}
+                  height={50}
+                  className="object-contain"
                   data-ai-hint="app store"
+                />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.ordereat.ordereat_mobile&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+                <Image
+                  src="/playstore_.png"
+                  alt="Download on the Play Store"
+                  width={150}
+                  height={50}
+                  className="object-contain"
+                  data-ai-hint="play store"
                 />
               </a>
             </div>
 
-            <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              ¡Pide fácil y rápido con OrderEat!
-            </h1>
-            <p className="text-lg text-foreground/80 mb-8 max-w-2xl">
-              Sigue estos sencillos pasos para recibir la comida de tus peques directo en la escuela.
-            </p>
-
             <div className="w-full max-w-md border rounded-lg overflow-hidden shadow-lg">
-               <Image
-                src="https://placehold.co/600x800.png"
+              <Image
+                src="/ordereat_instructions.png"
                 alt="Cómo ordenar en OrderEat"
                 width={600}
                 height={800}
                 className="w-full h-auto"
-                data-ai-hint="mobile app screenshot"
+                data-ai-hint="mobile app instructions"
               />
             </div>
           </div>

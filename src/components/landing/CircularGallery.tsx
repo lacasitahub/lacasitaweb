@@ -329,7 +329,6 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       { image: '/food/pez.jpg', text: 'Pescado' },
-      { image: '/food/pasta_alfredo.jpg', text: 'Pasta Alfredo' },
       { image: '/food/cesar.jpg', text: 'Ensalada César' },
       { image: '/food/sandwich.jpg', text: 'Sándwich' },
       { image: '/food/albondigas.jpg', text: 'Albóndigas' },
@@ -440,11 +439,11 @@ class App {
 export default function CircularGallery({
   items,
   bend = 3,
-  textColor = "#ffffff",
+  textColor = "hsl(var(--primary))",
   borderRadius = 0.05,
   font = "bold 30px 'PT Sans'",
   scrollSpeed = 2,
-  scrollEase = 0.05,
+  scrollEase = 0.01,
 }) {
   const containerRef = useRef(null);
   useEffect(() => {
