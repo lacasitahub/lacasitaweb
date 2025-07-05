@@ -22,11 +22,11 @@ export function Hero() {
                 transition={{ duration: 0.5 }}
             >
                 <Image
-                    src="/logo.png"
+                    src="/logo2.png"
                     alt="La Casita Logo"
                     width={150}
                     height={150}
-                    className="shadow-2xl rounded-full"
+                    className="shadow-5xl shadow-primary filter blur-5xl"
                     priority
                     data-ai-hint="logo"
                 />
@@ -42,7 +42,7 @@ export function Hero() {
             <br/>
             <RotatingText
                 texts={rotatingTexts}
-                mainClassName="text-5xl md:text-7xl text-accent inline-block mx-2 font-bold"
+                mainClassName="text-4xl md:text-7xl text-accent inline-block mx-2 font-bold"
                 staggerDuration={0.02}
                 splitLevelClassName="overflow-hidden pb-1"
                 staggerFrom="center"
