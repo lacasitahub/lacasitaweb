@@ -1,10 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import menuData from '@/data/menu.json';
-import { Bean, Soup, Cookie, GlassWater } from 'lucide-react';
+import { EggFried, Soup, Cookie, GlassWater } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 const iconMap: { [key: string]: LucideIcon } = {
-  'Desayunos': Bean,
+  'Desayunos': EggFried,
   'Platos fuertes': Soup,
   'Snacks': Cookie,
   'Bebidas': GlassWater,
