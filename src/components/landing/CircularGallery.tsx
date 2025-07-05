@@ -327,14 +327,7 @@ class App {
     });
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
-    const defaultItems = [
-      { image: '/chilaquiles.jpg', text: 'Chilaquiles' },
-      { image: '/sopa_de_lentejas.jpg', text: 'Sopa de Lentejas' },
-      { image: '/albondigas.jpg', text: 'Albondigas' },
-      { image: '/limon.jpg', text: 'Agua de Limón' },
-      { image: '/jamaica.jpg', text: 'Agua de Jamaica' },
-    ];
-    const galleryItems = items && items.length ? items : defaultItems;
+    const galleryItems = items && items.length ? items : [];
     this.mediasImages = galleryItems.concat(galleryItems);
     this.medias = this.mediasImages.map((data, index) => {
       return new Media({
@@ -434,7 +427,7 @@ class App {
 
 export default function CircularGallery({
   items,
-  bend = 3,
+  bend = 2,
   textColor = "#ffffff",
   borderRadius = 0.05,
   font = "bold 30px 'PT Sans'",
