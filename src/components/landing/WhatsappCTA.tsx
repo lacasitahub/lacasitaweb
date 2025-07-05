@@ -25,7 +25,7 @@ export function WhatsappCTA() {
     const handleComplete = () => {
         const formattedDate = date ? format(date, 'PPP', { locale: es }) : 'una fecha por confirmar';
         const message = `Hola La Casita, me gustaría hacer un pedido de ${amount || 'varias'} comidas para el ${formattedDate}. Detalles adicionales: ${details || 'Ninguno'}.`;
-        const whatsappUrl = `https://wa.me/528123456789?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/14048043231?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
         setIsOpen(false);
     };
@@ -55,13 +55,17 @@ export function WhatsappCTA() {
                             <p className="text-center text-muted-foreground">Personaliza tu pedido con La Casita en 4 simples pasos.</p>
                         </Step>
                         <Step>
-                            <h2 className="text-xl font-semibold mb-4">¿Cuántas comidas necesitas?</h2>
-                            <Input
-                                type="number"
-                                value={amount}
-                                onChange={(e) => setAmount(e.target.value)}
-                                placeholder="Ej: 15"
-                            />
+                            <h2 className="text-xl font-semibold mb-4 text-center">¿Cuántas comidas necesitas?</h2>
+                            <div className="flex justify-center items-center gap-2">
+                                <Input
+                                    type="number"
+                                    value={amount}
+                                    onChange={(e) => setAmount(e.target.value)}
+                                    placeholder="15"
+                                    className="w-24 text-center"
+                                />
+                                <span className="text-muted-foreground">órdenes</span>
+                            </div>
                         </Step>
                         <Step>
                              <h2 className="text-xl font-semibold mb-4 text-center">¿Para qué fecha?</h2>
@@ -77,12 +81,12 @@ export function WhatsappCTA() {
                              </div>
                         </Step>
                         <Step>
-                            <h2 className="text-xl font-semibold mb-4">¿Alguna alergia o instrucción especial?</h2>
+                            <h2 className="text-xl font-semibold mb-2 text-center">¿Alguna alergia o instrucción especial?</h2>
                             <Textarea
                                 value={details}
                                 onChange={(e) => setDetails(e.target.value)}
                                 placeholder="Ej: Un niño es alérgico a la nuez."
-                                rows={4}
+                                rows={3}
                             />
                         </Step>
                     </Stepper>

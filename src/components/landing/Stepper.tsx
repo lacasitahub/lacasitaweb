@@ -61,7 +61,7 @@ export default function Stepper({
       <div
         className={`mx-auto w-full max-w-md rounded-2xl bg-card text-card-foreground shadow-xl ${stepCircleContainerClassName}`}
       >
-        <div className={`${stepContainerClassName} flex w-full items-center p-8`}>
+        <div className={`${stepContainerClassName} flex w-full items-center p-6`}>
           {stepsArray.map((_, index) => {
             const stepNumber = index + 1;
             const isNotLastStep = index < totalSteps - 1;
@@ -98,14 +98,14 @@ export default function Stepper({
           isCompleted={isCompleted}
           currentStep={currentStep}
           direction={direction}
-          className={`space-y-2 px-8 ${contentClassName}`}
+          className={`space-y-2 px-6 ${contentClassName}`}
         >
           {stepsArray[currentStep - 1]}
         </StepContentWrapper>
         {!isCompleted && (
-          <div className={`px-8 pb-8 ${footerClassName}`}>
+          <div className={`px-6 pb-6 ${footerClassName}`}>
             <div
-              className={`mt-10 flex ${currentStep > 1 ? "justify-between" : "justify-end"
+              className={`mt-8 flex ${currentStep > 1 ? "justify-between" : "justify-end"
                 }`}
             >
               {currentStep > 1 && (
@@ -122,7 +122,7 @@ export default function Stepper({
               )}
               <button
                 onClick={isLastStep ? handleComplete : handleNext}
-                className="duration-350 flex items-center justify-center rounded-full bg-primary py-1.5 px-3.5 font-medium tracking-tight text-primary-foreground transition hover:bg-primary/90 active:bg-primary/80"
+                className="duration-350 flex items-center justify-center rounded-full bg-primary py-1.5 px-3.5 font-medium text-primary-foreground transition hover:bg-primary/90 active:bg-primary/80"
                 {...nextButtonProps}
               >
                 {isLastStep ? completeButtonText : nextButtonText}
