@@ -327,7 +327,19 @@ class App {
     });
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
-    const galleryItems = items && items.length ? items : [];
+    const defaultItems = [
+      { image: '/pez.jpg', text: 'Pescado' },
+      { image: '/pasta_alfredo.jpg', text: 'Pasta Alfredo' },
+      { image: '/cesar.jpg', text: 'Ensalada César' },
+      { image: '/sandwich.jpg', text: 'Sándwich' },
+      { image: '/albondigas.jpg', text: 'Albóndigas' },
+      { image: '/limon.jpg', text: 'Agua de Limón' },
+      { image: '/jamaica.jpg', text: 'Agua de Jamaica' },
+      { image: '/chilaquiles.jpg', text: 'Chilaquiles' },
+      { image: '/ensalada.jpg', text: 'Ensalada Fresca' },
+      { image: '/sopa_de_lentejas.jpg', text: 'Sopa de Lentejas' },
+    ];
+    const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
     this.medias = this.mediasImages.map((data, index) => {
       return new Media({
