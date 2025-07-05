@@ -24,8 +24,8 @@ export function Hero() {
                 <Image
                     src="/logo2.png"
                     alt="La Casita Logo"
-                    width={150}
-                    height={150}
+                    width={200}
+                    height={200}
                     className="shadow-5xl shadow-primary filter blur-5xl"
                     priority
                     data-ai-hint="logo"
