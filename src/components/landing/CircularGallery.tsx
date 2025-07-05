@@ -328,18 +328,12 @@ class App {
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
-      { image: `https://placehold.co/800x600.png?text=1`, text: "Bridge" },
-      { image: `https://placehold.co/800x600.png?text=2`, text: "Desk Setup" },
-      { image: `https://placehold.co/800x600.png?text=3`, text: "Waterfall" },
-      { image: `https://placehold.co/800x600.png?text=4`, text: "Strawberries" },
-      { image: `https://placehold.co/800x600.png?text=5`, text: "Deep Diving" },
-      { image: `https://placehold.co/800x600.png?text=6`, text: "Train Track" },
-      { image: `https://placehold.co/800x600.png?text=7`, text: "Santorini" },
-      { image: `https://placehold.co/800x600.png?text=8`, text: "Blurry Lights" },
-      { image: `https://placehold.co/800x600.png?text=9`, text: "New York" },
-      { image: `https://placehold.co/800x600.png?text=10`, text: "Good Boy" },
-      { image: `https://placehold.co/800x600.png?text=11`, text: "Coastline" },
-      { image: `https://placehold.co/800x600.png?text=12`, text: "Palm Trees" },
+      { image: '/chilaquiles.jpg', text: 'Chilaquiles' },
+      { image: '/pasta_alfredo.jpg', text: 'Pasta Alfredo' },
+      { image: '/sopa_de_lentejas.jpg', text: 'Sopa de Lentejas' },
+      { image: '/limon.jpg', text: 'Agua de Limón' },
+      { image: '/jamaica.jpg', text: 'Agua de Jamaica' },
+      { image: '/ensalada.jpg', text: 'Ensalada Fresca' },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
