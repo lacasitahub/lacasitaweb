@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const navLinks = [
   { href: '#inicio', label: 'Inicio' },
@@ -48,9 +49,11 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <Button className="hidden md:flex shadow-lg">
-          Ordena en OrderEat
-        </Button>
+        <Link href="/ordereat">
+          <Button className="hidden md:flex shadow-lg">
+            Ordena en OrderEat
+          </Button>
+        </Link>
         <div className="md:hidden">
           <Button onClick={toggleMenu} variant="ghost" size="icon">
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -71,9 +74,11 @@ export function Header() {
                 {link.label}
               </a>
             ))}
-            <Button size="lg" className="mt-4">
-              Ordena en OrderEat
-            </Button>
+            <Link href="/ordereat">
+              <Button size="lg" className="mt-4">
+                Ordena en OrderEat
+              </Button>
+            </Link>
           </nav>
         </div>
       )}

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import RotatingText from './RotatingText';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export function Hero() {
   const rotatingTexts = ['Corazón', 'Estudiante', 'Maestro', 'Futuro'];
@@ -65,10 +66,12 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow">
-              Ver Menú
-              <ArrowRight className="ml-2"/>
-            </Button>
+            <Link href="/ordereat">
+              <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow">
+                Ordena en OrderEat
+                <ArrowRight className="ml-2"/>
+              </Button>
+            </Link>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6">
               Contáctanos
             </Button>
