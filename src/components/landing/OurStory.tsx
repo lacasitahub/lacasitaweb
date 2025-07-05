@@ -104,7 +104,7 @@ export function OurStory() {
               bend={3}
               textColor="hsl(var(--primary))"
               borderRadius={0.05}
-              scrollEase={0.02}
+              scrollEase={0.01}
             />
           </div>
         </div>
