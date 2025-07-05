@@ -1,6 +1,15 @@
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bean, Building, Handshake, School, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import dynamic from 'next/dynamic';
+import { Skeleton } from '../ui/skeleton';
+
+const CircularGallery = dynamic(() => import('./CircularGallery'), {
+  ssr: false,
+  loading: () => <Skeleton className="w-full h-[600px]" />,
+});
 
 const timelineEvents = [
   {
@@ -27,6 +36,15 @@ const timelineEvents = [
     description: 'Crecemos nuestra presencia a tres importantes escuelas, sirviendo a miles de alumnos.',
     icon: School,
   },
+];
+
+const galleryItems = [
+    { image: '/gallery/chilaquiles.jpg', text: 'Chilaquiles' },
+    { image: '/gallery/pasta_alfredo.jpg', text: 'Pasta Alfredo' },
+    { image: '/gallery/sopa_de_lentejas.jpg', text: 'Sopa de Lentejas' },
+    { image: '/gallery/limon.jpg', text: 'Agua de Limón' },
+    { image: '/gallery/jamaica.jpg', text: 'Agua de Jamaica' },
+    { image: '/gallery/ensalada.jpg', text: 'Ensalada Fresca' },
 ];
 
 export function OurStory() {
@@ -72,6 +90,25 @@ export function OurStory() {
             ))}
           </div>
         </div>
+
+        <div className="mt-20">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline text-primary">Nuestros Platillos</h2>
+            <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto">
+              Una probadita de lo que cocinamos con amor todos los días.
+            </p>
+          </div>
+          <div style={{ height: '600px', position: 'relative' }}>
+            <CircularGallery
+              items={galleryItems}
+              bend={3}
+              textColor="hsl(var(--primary))"
+              borderRadius={0.05}
+              scrollEase={0.02}
+            />
+          </div>
+        </div>
+
 
         <div className="mt-20 text-center max-w-4xl mx-auto">
             <ShieldCheck className="w-16 h-16 text-primary mx-auto mb-4"/>
