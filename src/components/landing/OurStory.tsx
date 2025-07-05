@@ -45,6 +45,7 @@ const galleryItems = [
     { image: '/limon.jpg', text: 'Agua de Limón' },
     { image: '/jamaica.jpg', text: 'Agua de Jamaica' },
     { image: '/ensalada.jpg', text: 'Ensalada Fresca' },
+    { image: '/albondigas.jpg', text: 'Albóndigas' },
 ];
 
 export function OurStory() {

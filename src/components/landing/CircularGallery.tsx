@@ -329,11 +329,13 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       { image: '/chilaquiles.jpg', text: 'Chilaquiles' },
-      { image: '/pasta_alfredo.jpg', text: 'Pasta Alfredo' },
+      { image: '/pasta_alfred.jpg', text: 'Pasta Alfredo' },
       { image: '/sopa_de_lentejas.jpg', text: 'Sopa de Lentejas' },
       { image: '/limon.jpg', text: 'Agua de Limón' },
       { image: '/jamaica.jpg', text: 'Agua de Jamaica' },
-      { image: '/ensalada.jpg', text: 'Ensalada Fresca' },
+      { image: '/jamaica.jpg', text: 'Agua de Jamaica' },
+      { image: '/cesar.jpg', text: 'Ensalada Cesar' },
+      { image: '/sandwich.jpg', text: 'Sandwich' },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
