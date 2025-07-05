@@ -22,7 +22,7 @@ export function Hero() {
                 transition={{ duration: 0.5 }}
             >
                 <Image
-                    src="https://placehold.co/150x150.png"
+                    src="/logo.png"
                     alt="La Casita Logo"
                     width={150}
                     height={150}
