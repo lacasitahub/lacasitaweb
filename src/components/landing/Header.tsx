@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-const navLinks = [
+const navLinksData = [
   { href: '#inicio', label: 'Inicio' },
   { href: '#historia', label: 'Nuestra Historia' },
   { href: '#menu', label: 'Menú' },
@@ -18,6 +19,14 @@ const navLinks = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isHomePage = pathname === '/';
+
+  const navLinks = navLinksData.map(link => ({
+    ...link,
+    href: isHomePage ? link.href : `/${link.href}`
+  }));
 
   useEffect(() => {
     const handleScroll = () => {

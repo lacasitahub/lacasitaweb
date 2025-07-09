@@ -23,7 +23,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
         <PageWrapper>{children}</PageWrapper>
-        <WhatsappCTA />
+        {/* <WhatsappCTA /> */}
         <Toaster />
       </body>
     </html>

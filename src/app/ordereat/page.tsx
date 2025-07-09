@@ -22,7 +22,7 @@ export default function OrderEatPage() {
 
           <div className="bg-card p-8 md:p-12 rounded-2xl shadow-xl flex flex-col items-center">
             <Image
-              src="/ordereat_.png"
+              src="/ordereat_logo.png"
               alt="OrderEat Logo"
               width={200}
               height={100}
