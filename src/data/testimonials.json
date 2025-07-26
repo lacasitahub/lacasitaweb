@@ -1,19 +1,19 @@
 [
   {
     "name": "María G.",
-    "avatar": "https://placehold.co/100x100.png",
-    "comment": "Desde que mi hijo come en La Casita, está más feliz y con más energía. ¡Gracias por cuidar su alimentación!",
+    "avatar": "/w1.png",
+    "comment": "Desde que mi hijo come de La Casita, está más feliz y con más energía. ¡Gracias por cuidar su alimentación!",
     "rating": 5
   },
   {
     "name": "Profesor Ramírez",
-    "avatar": "https://placehold.co/100x100.png",
+    "avatar": "/m1.png",
     "comment": "La calidad del servicio es increíble. La comida es deliciosa y siempre puntuales.",
-    "rating": 4
+    "rating": 5
   },
   {
     "name": "Laura P.",
-    "avatar": "https://placehold.co/100x100.png",
+    "avatar": "/w2.png",
     "comment": "Siento tranquilidad al saber que mi hija come sano todos los días. Súper recomendado.",
     "rating": 5
   }
