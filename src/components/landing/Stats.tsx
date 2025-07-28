@@ -1,3 +1,7 @@
+'use client';
+
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import GlareHover from './GlareHover';
 import './GlareHover.css';
 import CountUp from './CountUp';
@@ -20,48 +24,67 @@ const stats = [
   },
 ];
 
+const StatCard = ({ stat, index }: { stat: typeof stats[0], index: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: index * 0.1 } },
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={cardVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <GlareHover
+        width="100%"
+        height="100%"
+        borderRadius="var(--radius)"
+        background="hsl(var(--card))"
+        borderColor="hsl(var(--border))"
+        glareColor="hsl(var(--primary))"
+        glareOpacity={0.05}
+        className="flex items-center justify-center"
+      >
+        <motion.div 
+          className="p-8 text-center"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
+          <div
+            className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline"
+            style={{
+              textShadow: `
+                2px 2px 0px hsl(var(--primary) / 0.4),
+                4px 4px 0px hsl(var(--primary) / 0.2),
+                6px 6px 0px hsl(var(--primary) / 0.1)
+              `,
+            }}
+          >
+            {stat.value.startsWith('+') ? '+' : ''}
+            <CountUp from={0} to={parseInt(stat.value.replace(/[^0-9]/g, ''), 10)} duration={stat.duration} separator="," />
+          </div>
+          <div className="text-lg md:text-xl font-bold text-foreground/90 mt-2 capitalize">
+            {stat.label}
+          </div>
+        </motion.div>
+      </GlareHover>
+    </motion.div>
+  );
+};
+
 export function Stats() {
   return (
     <section className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat, index) => {
-            const numericValue = parseInt(stat.value.replace(/[^0-9]/g, ''), 10);
-            const prefix = stat.value.startsWith('+') ? '+' : '';
-
-            return (
-              <GlareHover
-                key={index}
-                width="100%"
-                height="100%"
-                borderRadius="var(--radius)"
-                background="hsl(var(--card))"
-                borderColor="hsl(var(--border))"
-                glareColor="hsl(var(--primary))"
-                glareOpacity={0.05}
-                className="flex items-center justify-center"
-              >
-                <div className="p-8 text-center">
-                  <div 
-                    className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline"
-                    style={{
-                      textShadow: `
-                        2px 2px 0px hsl(var(--primary) / 0.4),
-                        4px 4px 0px hsl(var(--primary) / 0.2),
-                        6px 6px 0px hsl(var(--primary) / 0.1)
-                      `,
-                    }}
-                  >
-                    {prefix}
-                    <CountUp from={0} to={numericValue} duration={stat.duration} separator="," />
-                  </div>
-                  <div className="text-lg md:text-xl font-bold text-foreground/90 mt-2 capitalize">
-                    {stat.label}
-                  </div>
-                </div>
-              </GlareHover>
-            );
-          })}
+          {stats.map((stat, index) => (
+            <StatCard key={index} stat={stat} index={index} />
+          ))}
         </div>
       </div>
     </section>
