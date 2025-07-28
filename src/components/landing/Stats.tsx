@@ -56,14 +56,7 @@ const StatCard = ({ stat, index }: { stat: typeof stats[0], index: number }) => 
           transition={{ type: 'spring', stiffness: 300 }}
         >
           <div
-            className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline transition-all duration-300 glare-content glare-content-shadow"
-            style={{
-              textShadow: `
-                2px 2px 0px hsl(var(--primary) / 0.4),
-                4px 4px 0px hsl(var(--primary) / 0.2),
-                6px 6px 0px hsl(var(--primary) / 0.1)
-              `,
-            }}
+            className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline transition-all duration-300 glare-content"
           >
             {stat.value.startsWith('+') ? '+' : ''}
             <CountUp from={0} to={parseInt(stat.value.replace(/[^0-9]/g, ''), 10)} duration={stat.duration} separator="," />
