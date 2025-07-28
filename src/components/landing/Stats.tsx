@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import GlareHover from './GlareHover';
 import './GlareHover.css';
 import CountUp from './CountUp';
@@ -26,7 +26,6 @@ const stats = [
 
 const StatCard = ({ stat, index }: { stat: typeof stats[0], index: number }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -38,7 +37,9 @@ const StatCard = ({ stat, index }: { stat: typeof stats[0], index: number }) => 
       ref={ref}
       variants={cardVariants}
       initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      animate="visible"
+      whileHover={{ scale: 1.1 }}
+      transition={{ type: 'spring', stiffness: 300 }}
     >
       <GlareHover
         width="100%"
@@ -47,16 +48,13 @@ const StatCard = ({ stat, index }: { stat: typeof stats[0], index: number }) => 
         background="hsl(var(--card))"
         borderColor="hsl(var(--border))"
         glareColor="hsl(var(--primary))"
+        glareColorLeave="hsl(var(--accent))"
         glareOpacity={0.05}
-        className="flex items-center justify-center"
+        className="flex items-center justify-center group"
       >
-        <motion.div 
-          className="p-8 text-center"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: 'spring', stiffness: 300 }}
-        >
+        <div className="p-8 text-center">
           <div
-            className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline transition-all duration-300 glare-content"
+            className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline transition-colors duration-300 group-hover:text-accent"
           >
             {stat.value.startsWith('+') ? '+' : ''}
             <CountUp from={0} to={parseInt(stat.value.replace(/[^0-9]/g, ''), 10)} duration={stat.duration} separator="," />
@@ -64,7 +62,7 @@ const StatCard = ({ stat, index }: { stat: typeof stats[0], index: number }) => 
           <div className="text-lg md:text-xl font-bold text-foreground/90 mt-2 capitalize">
             {stat.label}
           </div>
-        </motion.div>
+        </div>
       </GlareHover>
     </motion.div>
   );

@@ -10,44 +10,50 @@
   place-items: center;
 }
 
-.glare-hover::before {
+.glare-hover::before,
+.glare-hover::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
+  background-repeat: no-repeat;
+  background-size: var(--gh-size) var(--gh-size), 100% 100%;
+  pointer-events: none;
+  transition: background-position var(--gh-duration) ease;
+}
+
+/* ::before is for the hover-in effect */
+.glare-hover::before {
+  background-image: linear-gradient(
     var(--gh-angle),
     hsla(0, 0%, 0%, 0) 60%,
-    var(--gh-rgba) 70%,
+    var(--gh-rgba-hover) 70%,
     hsla(0, 0%, 0%, 0),
     hsla(0, 0%, 0%, 0) 100%
   );
-  transition: var(--gh-duration) ease;
-  background-size: var(--gh-size) var(--gh-size), 100% 100%;
-  background-repeat: no-repeat;
-  background-position: -100% -100%, 0 0;
+  background-position: -100% -100%;
 }
+
+/* ::after is for the hover-out effect */
+.glare-hover::after {
+   background-image: linear-gradient(
+    var(--gh-angle),
+    hsla(0, 0%, 0%, 0) 60%,
+    var(--gh-rgba-leave) 70%,
+    hsla(0, 0%, 0%, 0),
+    hsla(0, 0%, 0%, 0) 100%
+  );
+  background-position: 200% 200%; /* Start off-screen */
+}
+
 
 .glare-hover:hover {
   cursor: pointer;
 }
 
 .glare-hover:hover::before {
-  background-position: 100% 100%, 0 0;
+  background-position: 100% 100%;
 }
 
-.glare-hover--play-once::before {
-  transition: none;
-}
-
-.glare-hover--play-once:hover::before {
-  transition: var(--gh-duration) ease;
-  background-position: 100% 100%, 0 0;
-}
-
-.glare-hover .glare-content {
-  transition: color 0.3s ease;
-}
-
-.glare-hover:hover .glare-content {
-  color: hsl(var(--accent));
+.glare-hover:not(:hover)::after {
+    background-position: -100% -100%;
 }
