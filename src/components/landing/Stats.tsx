@@ -56,7 +56,7 @@ const StatCard = ({ stat, index }: { stat: typeof stats[0], index: number }) => 
           transition={{ type: 'spring', stiffness: 300 }}
         >
           <div
-            className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline"
+            className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline transition-all duration-300 glare-content glare-content-shadow"
             style={{
               textShadow: `
                 2px 2px 0px hsl(var(--primary) / 0.4),

@@ -43,3 +43,18 @@
   transition: var(--gh-duration) ease;
   background-position: 100% 100%, 0 0;
 }
+
+.glare-hover .glare-content {
+  transition: color 0.3s ease;
+}
+
+.glare-hover:hover .glare-content-primary {
+  color: hsl(var(--accent));
+}
+
+.glare-hover:hover .glare-content-shadow {
+  text-shadow:
+    2px 2px 0px hsl(var(--accent) / 0.4),
+    4px 4px 0px hsl(var(--accent) / 0.2),
+    6px 6px 0px hsl(var(--accent) / 0.1);
+}
