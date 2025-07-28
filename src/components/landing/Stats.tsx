@@ -42,7 +42,16 @@ export function Stats() {
                 className="flex items-center justify-center"
               >
                 <div className="p-8 text-center">
-                  <div className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline">
+                  <div 
+                    className="text-6xl md:text-7xl font-bold text-primary tracking-tight font-headline"
+                    style={{
+                      textShadow: `
+                        2px 2px 0px hsl(var(--primary) / 0.4),
+                        4px 4px 0px hsl(var(--primary) / 0.2),
+                        6px 6px 0px hsl(var(--primary) / 0.1)
+                      `,
+                    }}
+                  >
                     {prefix}
                     <CountUp from={0} to={numericValue} duration={stat.duration} separator="," />
                   </div>

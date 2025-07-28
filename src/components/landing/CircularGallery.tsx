@@ -1,7 +1,7 @@
 'use client';
 
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from "ogl";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function debounce(func, wait) {
   let timeout;
@@ -148,7 +148,6 @@ class Media {
         void main() {
           vUv = uv;
           vec3 p = position;
-          p.z = (sin(p.x * 4.0 + uTime) * 1.5 + cos(p.y * 2.0 + uTime) * 1.5) * (0.1 + uSpeed * 0.5);
           gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
         }
       `,
@@ -219,22 +218,22 @@ class Media {
       font: this.font,
     });
   }
-  update(scroll, direction) {
+  update(scroll, direction, bend) {
     this.plane.position.x = this.x - scroll.current - this.extra;
 
     const x = this.plane.position.x;
     const H = this.viewport.width / 2;
 
-    if (this.bend === 0) {
+    if (bend === 0) {
       this.plane.position.y = 0;
       this.plane.rotation.z = 0;
     } else {
-      const B_abs = Math.abs(this.bend);
+      const B_abs = Math.abs(bend);
       const R = (H * H + B_abs * B_abs) / (2 * B_abs);
       const effectiveX = Math.min(Math.abs(x), H);
 
       const arc = R - Math.sqrt(R * R - effectiveX * effectiveX);
-      if (this.bend > 0) {
+      if (bend > 0) {
         this.plane.position.y = -arc;
         this.plane.rotation.z = -Math.sign(x) * Math.asin(effectiveX / R);
       } else {
@@ -290,6 +289,7 @@ class App {
       font = "bold 30px 'PT Sans'",
       scrollSpeed = 2,
       scrollEase = 0.05,
+      autoScroll = false,
     } = {}
   ) {
     autoBind(this)
@@ -297,12 +297,14 @@ class App {
     this.scrollSpeed = scrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck, 200);
+    this.autoScroll = autoScroll;
+    this.bend = bend;
     this.createRenderer();
     this.createCamera();
     this.createScene();
     this.onResize();
     this.createGeometry();
-    this.createMedias(items, bend, textColor, borderRadius, font);
+    this.createMedias(items, this.bend, textColor, borderRadius, font);
     this.update();
     this.addEventListeners();
   }
@@ -329,6 +331,7 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       { image: '/food/pez.jpg', text: 'Pescado' },
+      { image: '/food/pasta_alfredo.jpg', text: 'Pasta Alfredo' },
       { image: '/food/cesar.jpg', text: 'Ensalada César' },
       { image: '/food/sandwich.jpg', text: 'Sándwich' },
       { image: '/food/albondigas.jpg', text: 'Albóndigas' },
@@ -399,10 +402,13 @@ class App {
     }
   }
   update() {
+    if (this.autoScroll && !this.isDown) {
+        this.scroll.target += 0.005;
+    }
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? "right" : "left";
     if (this.medias) {
-      this.medias.forEach((media) => media.update(this.scroll, direction));
+      this.medias.forEach((media) => media.update(this.scroll, direction, this.bend));
     }
     this.renderer.render({ scene: this.scene, camera: this.camera });
     this.scroll.last = this.scroll.current;
@@ -436,9 +442,20 @@ class App {
   }
 }
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+  return isMobile;
+};
+
 export default function CircularGallery({
   items,
-  bend = 3,
+  bend: initialBend = 3,
   textColor = "hsl(var(--primary))",
   borderRadius = 0.05,
   font = "bold 30px 'PT Sans'",
@@ -446,12 +463,27 @@ export default function CircularGallery({
   scrollEase = 0.01,
 }) {
   const containerRef = useRef(null);
+  const isMobile = useIsMobile();
+  
+  const bend = isMobile ? 0 : initialBend;
+  const autoScroll = isMobile;
+
   useEffect(() => {
     if (!containerRef.current) return;
-    const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
+    const app = new App(containerRef.current, { 
+      items, 
+      bend, 
+      textColor, 
+      borderRadius, 
+      font, 
+      scrollSpeed, 
+      scrollEase,
+      autoScroll
+    });
     return () => {
       app.destroy();
     };
-  }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
+  }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase, autoScroll]);
+
   return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} />;
 }
