@@ -35,7 +35,7 @@ export function Testimonials() {
                   alt={testimonial.name}
                   width={80}
                   height={80}
-                  className="rounded-full mb-4 border-4 border-background shadow-md"
+                  className="rounded-full mb-4 border-4 border-background shadow-md object-cover w-[80px] h-[80px]"
                   data-ai-hint="person avatar"
                 />
                 <p className="text-foreground/80 italic mb-4">"{testimonial.comment}"</p>

@@ -16,12 +16,12 @@ export function OurStory() {
 
   const handleDownload = () => {
     // In a real application, you would fetch a PDF file from your assets
-    const link = document.createElement('a');
-    link.href = '/sample-certificate.pdf'; // Placeholder PDF
-    link.setAttribute('download', 'Certificado-H-Muestra.pdf');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // const link = document.createElement('a');
+    // link.href = '/sample-certificate.pdf'; // Placeholder PDF
+    // link.setAttribute('download', 'Certificado-H-Muestra.pdf');
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
   };
 
   return (
