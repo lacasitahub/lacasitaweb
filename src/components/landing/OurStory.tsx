@@ -14,16 +14,6 @@ const CircularGallery = dynamic(() => import('./CircularGallery'), {
 
 export function OurStory() {
 
-  const handleDownload = () => {
-    // In a real application, you would fetch a PDF file from your assets
-    // const link = document.createElement('a');
-    // link.href = '/sample-certificate.pdf'; // Placeholder PDF
-    // link.setAttribute('download', 'Certificado-H-Muestra.pdf');
-    // document.body.appendChild(link);
-    // link.click();
-    // document.body.removeChild(link);
-  };
-
   return (
     <section id="historia" className="py-20 md:py-32 bg-secondary/50">
       <div className="container mx-auto px-4 md:px-6">
@@ -56,10 +46,6 @@ export function OurStory() {
                     <p className="mt-2 text-md text-foreground/80">
                         Nuestro personal cuenta con entrenamiento bajo el <span className="font-bold">Certificado H</span>, el máximo estándar de higiene y manejo de alimentos, garantizando la seguridad y bienestar de tus hijos.
                     </p>
-                    <Button onClick={handleDownload} className="mt-6">
-                        <Download className="mr-2 h-4 w-4" />
-                        Descargar Certificado
-                    </Button>
                 </CardContent>
             </Card>
 

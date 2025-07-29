@@ -363,17 +363,19 @@ class App {
     });
   }
   onTouchDown(e) {
+    if (this.autoScroll) return;
     this.isDown = true;
     this.scroll.position = this.scroll.current;
     this.start = e.touches ? e.touches[0].clientX : e.clientX;
   }
   onTouchMove(e) {
-    if (!this.isDown) return;
+    if (this.autoScroll || !this.isDown) return;
     const x = e.touches ? e.touches[0].clientX : e.clientX;
     const distance = (this.start - x) * (this.scrollSpeed * 0.025);
     this.scroll.target = this.scroll.position + distance;
   }
   onTouchUp() {
+    if (this.autoScroll) return;
     this.isDown = false;
     this.onCheck();
   }
@@ -402,8 +404,8 @@ class App {
     }
   }
   update() {
-    if (this.autoScroll && !this.isDown) {
-        this.scroll.target += 0.005;
+    if (this.autoScroll) {
+        this.scroll.target += 0.3;
     }
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? "right" : "left";
@@ -466,7 +468,7 @@ export default function CircularGallery({
   const isMobile = useIsMobile();
   
   const bend = isMobile ? 0 : initialBend;
-  const autoScroll = isMobile;
+  const autoScroll = true; // Always autoscroll
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -485,5 +487,5 @@ export default function CircularGallery({
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase, autoScroll]);
 
-  return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} />;
+  return <div className="w-full h-full overflow-hidden" ref={containerRef} />;
 }
