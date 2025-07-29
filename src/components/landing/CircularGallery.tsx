@@ -287,7 +287,7 @@ class App {
       textColor = "#ffffff",
       borderRadius = 0,
       font = "bold 30px 'PT Sans'",
-      scrollSpeed = 2,
+      scrollSpeed = 0.1,
       scrollEase = 0.05,
       autoScroll = false,
     } = {}
@@ -405,7 +405,7 @@ class App {
   }
   update() {
     if (this.autoScroll) {
-        this.scroll.target += 0.3;
+        this.scroll.target += this.scrollSpeed;
     }
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? "right" : "left";
@@ -461,7 +461,7 @@ export default function CircularGallery({
   textColor = "hsl(var(--primary))",
   borderRadius = 0.05,
   font = "bold 30px 'PT Sans'",
-  scrollSpeed = 2,
+  scrollSpeed = 0.1,
   scrollEase = 0.01,
 }) {
   const containerRef = useRef(null);
