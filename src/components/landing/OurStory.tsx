@@ -1,11 +1,9 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Download, Heart, Leaf, ShieldCheck, Sparkles } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Heart, Leaf, ShieldCheck } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { Skeleton } from '../ui/skeleton';
-import { Button } from '../ui/button';
 
 const CircularGallery = dynamic(() => import('./CircularGallery'), {
   ssr: false,
@@ -75,6 +73,7 @@ export function OurStory() {
               bend={3}
               textColor="hsl(var(--primary))"
               borderRadius={0.05}
+              scrollSpeed={0.05}
               scrollEase={0.01}
             />
           </div>
