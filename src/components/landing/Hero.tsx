@@ -72,9 +72,11 @@ export function Hero() {
                 <ArrowRight className="ml-2"/>
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-              Contáctanos
-            </Button>
+            <a href="#contacto">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+                Contáctanos
+              </Button>
+            </a>
           </motion.div>
         </div>
       </div>
