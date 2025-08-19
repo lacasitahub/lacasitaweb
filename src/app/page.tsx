@@ -7,6 +7,7 @@ import { Testimonials } from '@/components/landing/Testimonials';
 import { Faq } from '@/components/landing/Faq';
 import { Contact } from '@/components/landing/Contact';
 import { Footer } from '@/components/landing/Footer';
+import { SchoolImageSection } from '@/components/landing/SchoolImageSection';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <OurStory />
         <Menu />
         <Testimonials />
+        <SchoolImageSection />
         <Faq />
         <Contact />
       </main>

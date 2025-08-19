@@ -11,16 +11,17 @@ const CircularGallery = dynamic(() => import('./CircularGallery'), {
 });
 
 const casitaImages = [
-  { image: '/casita/pez.png', text: 'Pescado' },
-  { image: '/casita/pasta_alfredo.png', text: 'Pasta Alfredo' },
-  { image: '/casita/cesar.png', text: 'Ensalada César' },
-  { image: '/casita/sandwich.png', text: 'Sándwich' },
-  { image: '/casita/albondigas.png', text: 'Albóndigas' },
-  { image: '/casita/limon.png', text: 'Agua de Limón' },
-  { image: '/casita/jamaica.png', text: 'Agua de Jamaica' },
+  { image: '/casita/burrito.png', text: 'burrito' },
+  { image: '/casita/carne.png', text: 'carne' },
   { image: '/casita/chilaquiles.png', text: 'Chilaquiles' },
-  { image: '/casita/ensalada.png', text: 'Ensalada Fresca' },
-  { image: '/casita/sopa_de_lentejas.png', text: 'Sopa de Lentejas' },
+  { image: '/casita/coditos.png', text: 'Coditos' },
+  { image: '/casita/cookies.png', text: 'Cookies' },
+  { image: '/casita/enchiladas.png', text: 'Enchiladas' },
+  { image: '/casita/menu.png', text: 'Menu' },
+  { image: '/casita/obleas.png', text: 'Obleas' },
+  { image: '/casita/paleta.png', text: 'Paleta' },
+  { image: '/casita/palomitas.png', text: 'Palomitas' },
+  { image: '/casita/pollo.png', text: 'Pollo' },
 ];
 
 export function OurStory() {
