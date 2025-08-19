@@ -10,8 +10,20 @@ const CircularGallery = dynamic(() => import('./CircularGallery'), {
   loading: () => <Skeleton className="w-full h-[600px]" />,
 });
 
-export function OurStory() {
+const casitaImages = [
+  { image: '/casita/pez.png', text: 'Pescado' },
+  { image: '/casita/pasta_alfredo.png', text: 'Pasta Alfredo' },
+  { image: '/casita/cesar.png', text: 'Ensalada César' },
+  { image: '/casita/sandwich.png', text: 'Sándwich' },
+  { image: '/casita/albondigas.png', text: 'Albóndigas' },
+  { image: '/casita/limon.png', text: 'Agua de Limón' },
+  { image: '/casita/jamaica.png', text: 'Agua de Jamaica' },
+  { image: '/casita/chilaquiles.png', text: 'Chilaquiles' },
+  { image: '/casita/ensalada.png', text: 'Ensalada Fresca' },
+  { image: '/casita/sopa_de_lentejas.png', text: 'Sopa de Lentejas' },
+];
 
+export function OurStory() {
   return (
     <section id="historia" className="py-20 md:py-32 bg-secondary/50">
       <div className="container mx-auto px-4 md:px-6">
@@ -21,45 +33,44 @@ export function OurStory() {
             Somos una empresa familiar con más de 10 años de experiencia entregando el mejor servicio, calidad y sabor en las instituciones educativas mexicanas. Ofrecemos el mejor servicio integral de cafeterías escolares en la Zona Norte del país.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-center items-start">
-            <Card className="shadow-none border-none bg-transparent">
-              <CardHeader className="items-center">
-                <Heart className="w-12 h-12 text-primary mb-4"/>
-                <CardTitle>Empresa Familiar</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground/80">
-                  Una empresa 100% mexicana, nacida del amor por la buena comida y el cuidado de los niños.
-                </p>
-              </CardContent>
-            </Card>
+          <Card className="shadow-none border-none bg-transparent">
+            <CardHeader className="items-center">
+              <Heart className="w-12 h-12 text-primary mb-4" />
+              <CardTitle>Empresa Familiar</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-foreground/80">
+                Una empresa 100% mexicana, nacida del amor por la buena comida y el cuidado de los niños.
+              </p>
+            </CardContent>
+          </Card>
 
-            <Card className="shadow-xl bg-card border-primary/20 border-2 -translate-y-4">
-                <CardHeader className="items-center">
-                    <ShieldCheck className="w-16 h-16 text-primary mb-4"/>
-                    <CardTitle className="text-2xl font-bold text-primary font-headline">Calidad e Higiene</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="mt-2 text-md text-foreground/80">
-                        Nuestro personal cuenta con entrenamiento bajo el <span className="font-bold">Certificado H</span>, el máximo estándar de higiene y manejo de alimentos, garantizando la seguridad y bienestar de tus hijos.
-                    </p>
-                </CardContent>
-            </Card>
+          <Card className="shadow-xl bg-card border-primary/20 border-2 -translate-y-4">
+            <CardHeader className="items-center">
+              <ShieldCheck className="w-16 h-16 text-primary mb-4" />
+              <CardTitle className="text-2xl font-bold text-primary font-headline">Calidad e Higiene</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="mt-2 text-md text-foreground/80">
+                Nuestro personal cuenta con entrenamiento bajo el <span className="font-bold">Certificado H</span>, el máximo estándar de higiene y manejo de alimentos, garantizando la seguridad y bienestar de tus hijos.
+              </p>
+            </CardContent>
+          </Card>
 
-            <Card className="shadow-none border-none bg-transparent">
-              <CardHeader className="items-center">
-                  <Leaf className="w-12 h-12 text-primary mb-4"/>
-                  <CardTitle>Apoyo Local</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground/80">
-                    Utilizamos ingredientes locales y frescos, apoyando la economía mexicana y ofreciendo menús variados.
-                </p>
-              </CardContent>
-            </Card>
+          <Card className="shadow-none border-none bg-transparent">
+            <CardHeader className="items-center">
+              <Leaf className="w-12 h-12 text-primary mb-4" />
+              <CardTitle>Apoyo Local</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-foreground/80">
+                Utilizamos ingredientes locales y frescos, apoyando la economía mexicana y ofreciendo menús variados.
+              </p>
+            </CardContent>
+          </Card>
         </div>
-
 
         <div className="mt-20">
           <div className="text-center mb-16">
@@ -70,6 +81,7 @@ export function OurStory() {
           </div>
           <div style={{ height: '600px', position: 'relative' }}>
             <CircularGallery
+              items={casitaImages}
               bend={3}
               textColor="hsl(var(--primary))"
               borderRadius={0.05}

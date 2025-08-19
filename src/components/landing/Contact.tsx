@@ -12,7 +12,7 @@ export function Contact() {
             Estamos aquí para cualquier duda, sugerencia o para iniciar una colaboración.
           </p>
           <div className="mt-8">
-            <a href="mailto:gerencia@lacasitamx.com">
+            <a href="mailto:gerencia@lacasitamx.com?subject=Interesado%20en%20La%20Casita">
               <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow">
                 gerencia@lacasitamx.com
               </Button>

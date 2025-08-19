@@ -329,20 +329,7 @@ class App {
     });
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
-    const defaultItems = [
-      { image: '/food/pez.jpg', text: 'Pescado' },
-      { image: '/food/pasta_alfredo.jpg', text: 'Pasta Alfredo' },
-      { image: '/food/cesar.jpg', text: 'Ensalada César' },
-      { image: '/food/sandwich.jpg', text: 'Sándwich' },
-      { image: '/food/albondigas.jpg', text: 'Albóndigas' },
-      { image: '/food/limon.jpg', text: 'Agua de Limón' },
-      { image: '/food/jamaica.jpg', text: 'Agua de Jamaica' },
-      { image: '/food/chilaquiles.jpg', text: 'Chilaquiles' },
-      { image: '/food/ensalada.jpg', text: 'Ensalada Fresca' },
-      { image: '/food/sopa_de_lentejas.jpg', text: 'Sopa de Lentejas' },
-    ];
-    const galleryItems = items && items.length ? items : defaultItems;
-    this.mediasImages = galleryItems;
+    this.mediasImages = items;
     this.medias = this.mediasImages.map((data, index) => {
       return new Media({
         geometry: this.planeGeometry,
@@ -471,7 +458,7 @@ export default function CircularGallery({
   const autoScroll = true; // Always autoscroll
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !items || items.length === 0) return;
     const app = new App(containerRef.current, { 
       items, 
       bend, 
